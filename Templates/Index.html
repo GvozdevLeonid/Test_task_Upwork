@@ -9,15 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
+
+{% csrf_token %}
     <div class="container-xxl">
         <div class="d-flex justify-content-end">
             <a  href="/accounts/logout" style="text-decoration: none; font-size: 48px; color: black">
                 X
             </a>
         </div>
+
         <ul class="list-group mt-4">
             {% for item in items %}
-            {% csrf_token %}
             {% if item.status == "ok"%}
             <li id="{{item.id}}" class="list-group-item list-group-item-success">
                 <input class="form-check-input" type="checkbox" checked="True">
